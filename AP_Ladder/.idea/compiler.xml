@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="AP_Ladder" target="17" />
+      <module name="AP_Ladder" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>
