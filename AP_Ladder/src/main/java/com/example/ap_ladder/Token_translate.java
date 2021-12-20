@@ -1,23 +1,13 @@
 package com.example.ap_ladder;
 
-import javafx.scene.control.Label;
-
 public class Token_translate implements Runnable {
-
-
-        player p;
-        Label locval;
-
-        (player p,Label locval){
-
-            this.p=p;
-            this.locval=locval;
+        Token t1;
+        Token_translate(Token t) {
+            this.t1 = t;
         }
         @Override
         public void run() {
-            p.btn.bt.setTranslateX(p.desx-p.btn.orgx);
-            p.btn.bt.setTranslateY(p.desy-p.btn.orgy);
-            locval.setText("Distance Moved:"+String.valueOf(p.btn.dc));
+            t1.getButton().setTranslateX(t1.getX_curr() - t1.getX_init());
+            t1.getButton().setTranslateY(t1.getY_curr() - t1.getY_init());
         }
-
 }

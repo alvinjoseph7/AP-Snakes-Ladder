@@ -1,11 +1,6 @@
 package com.example.ap_ladder;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.Random;
-
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
+
 
 public class Board {
 
@@ -35,32 +30,37 @@ public class Board {
         return fin_pos;
     }
     public double get_X(int pos) {
-        return this.maps[pos-1][0];
+        return this.maps[pos][0];
     }
 
     public double get_Y(int pos) {
-        return this.maps[pos-1][0];
-    }
-  /*  public static int getDiceNo() {
-        return diceNo;
+        return this.maps[pos][1];
     }
 
-
-    public static void setDiceNo(int diceNo) {
-        Board.diceNo = diceNo;
+    public double[][] getMaps() {
+        return maps;
     }
 
-    public int rollDice() throws FileNotFoundException {
-        for (int i = 0; i < 6; i++) {
-            // use this to show rolling animation
-            // Image img = new Image(new FileInputStream("path"));
+    /*  public static int getDiceNo() {
+            return diceNo;
         }
-        
-        Random rand = new Random();
-        int diceResult = rand.nextInt(6) + 1;
-        return diceResult;
-    }
-*/
+
+
+        public static void setDiceNo(int diceNo) {
+            Board.diceNo = diceNo;
+        }
+
+        public int rollDice() throws FileNotFoundException {
+            for (int i = 0; i < 6; i++) {
+                // use this to show rolling animation
+                // Image img = new Image(new FileInputStream("path"));
+            }
+
+            Random rand = new Random();
+            int diceResult = rand.nextInt(6) + 1;
+            return diceResult;
+        }
+    */
     private void initialise_mapping() {
 
     }
