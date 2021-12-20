@@ -1,5 +1,7 @@
 package com.example.ap_ladder;
 
+import java.io.FileNotFoundException;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,36 +32,37 @@ public class HelloController {
     @FXML
     private Label welcomeText;
 
-    // boolean turn;
-
-    
-    @FXML
-    public void bkgdTouch(MouseEvent event) {
-        Platform.runLater(new BackgroundTouch());
-
-    }
     
     @FXML    
-    public void requestRoll(MouseEvent mouseEvent) throws InterruptedException {
+    public void requestRoll(MouseEvent mouseEvent) throws InterruptedException, FileNotFoundException {
         int diceResult = board.rollDice();
-        MovePlayer m1 = new MovePlayer(player1, diceResult);
-        // player1.move(diceResult);
-        m1.join();
+        MovePlayer mp1 = new MovePlayer(player1, diceResult);
+        
+        mp1.join();
         yieldToComputer();
-        // player1.roll(mouseEvent);
     }
-    
-    
-    
-    private void yieldToComputer() {
+
+    private void yieldToComputer() throws FileNotFoundException {
         int diceResult = board.rollDice();
-        MovePlayer m2 = new MovePlayer(player2, diceResult);
+        MovePlayer mp2 = new MovePlayer(player2, diceResult);
 
         // player2.move(diceResult);
     }
 
+    @FXML
+    public void bkgdTouch(MouseEvent event) {
+        double x = event.getSceneX();
+        double y = event.getSceneY();
+        Platform.runLater(new BackgroundTouch(x, y));
+
+    }
+    
+    
+    
+    
+
     void initalize() {
-        board = new Board();
+        board = new Board(dice);
 
         player1 = new Player(token_1);
         player2 = new Player(token_2);
@@ -70,6 +73,13 @@ public class HelloController {
 }
 
 class BackgroundTouch implements Runnable {
+    private double x_pos;
+    private double y_pos;
+
+    public BackgroundTouch(double x, double y) {
+        this.x_pos = x;
+        this.y_pos = y;
+    }
 
     @Override
     public void run() {
@@ -97,11 +107,11 @@ class MovePlayer extends Thread {
         // TODO Auto-generated method stub
         while (number-- != 0) {
             // move once
-            this.player.move(1);
+            this.player.move();
 
             //pause for 100ms for animation feel
             try {
-                Thread.sleep(100);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -5,19 +5,25 @@ import javafx.scene.input.MouseEvent;
 
 public class Player {
     private Token token;
+    private Integer position;
 
     public Player(Button button) {
         this.token = new Token(button);
+        this.position = 0;
     }
 
     // void rollDice() {
         
     // }
 
-    public void move(int diceResult) {
+    public void move() {
         //move token here 
-        this.token.translate(diceResult);
+        if (this.position % 10 == 0)
+            this.token.transY();
+        else
+            this.token.transX();
 
+        this.position += 1;
     }
 
     
