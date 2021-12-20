@@ -13,8 +13,9 @@ import javafx.scene.shape.Rectangle;
 
 public class HelloController {
     Board board;
-    public Player player1;
-    public Player player2;
+    private Player[] player = new Player[2];
+    private int turn;
+    private Dice d1;
     
     @FXML
     private Button dice;
@@ -44,17 +45,20 @@ public class HelloController {
     
     @FXML    
     public void requestRoll(MouseEvent mouseEvent) throws InterruptedException, FileNotFoundException {
+        //int diceResult = board.rollDice();
+        MovePlayer mp = new MovePlayer(player[turn], board, d1);
         
-        switchShadow();
-        int diceResult = board.rollDice();
-        MovePlayer mp1 = new MovePlayer(player1, diceResult);
-        
-        mp1.join();
-        yieldToComputer();
-        // right_shadow.setV
+        mp.join();
+        if(this.turn == 1) {
+            this.turn = 0;
+        }
+        else {
+            this.turn = 1;
+        }
+
+        //yieldToComputer();
     }
-
-
+/*
     private void yieldToComputer() throws FileNotFoundException {
         // leftShadow.setVisible(true);
         // rightShadow.setVisible(false);
@@ -63,7 +67,7 @@ public class HelloController {
 
         // player2.move(diceResult);
     }
-
+*/
     @FXML
     public void bkgdTouch(MouseEvent event) {
         double x = event.getSceneX();
@@ -78,8 +82,13 @@ public class HelloController {
 
     void initalize() {
         board = new Board(dice);
-        player1 = new Player(token_1);
-        player2 = new Player(token_2);
+        turn = 0;
+        player[0] = new Player(token_1);
+        player[1] = new Player(token_2);
+        d1 = new Dice(dice);
+        // turn = true;
+
+        
     }
 }
 
@@ -102,7 +111,7 @@ class BackgroundTouch implements Runnable {
     }
 
 }
-
+/*
 class MovePlayer extends Thread {
     Player player;
     int result;
@@ -141,3 +150,4 @@ class MovePlayer extends Thread {
         }
     }
 }
+*/
