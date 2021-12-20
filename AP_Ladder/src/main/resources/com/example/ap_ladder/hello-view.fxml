@@ -4,19 +4,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Box?>
 
-
-<AnchorPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1434.0" prefWidth="1673.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="img11" fitHeight="394.0" fitWidth="504.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img11" fitHeight="1000.0" fitWidth="1000.0" layoutX="269.0" layoutY="185.0" onMouseClicked="#bkgdTouch" pickOnBounds="true">
          <image>
             <Image url="@snakes_ladders.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="token_1" layoutY="400.0" mnemonicParsing="false" style="-fx-background-color: #000344;" text="Token1" />
-      <Button fx:id="token_2" layoutY="425.0" mnemonicParsing="false" text="Token2" />
-      <Button fx:id="dice" layoutX="118.0" layoutY="403.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="42.0" style="-fx-background-color: #006500;" text="Dice" />
-      <Box depth="100" height="100" layoutX="337.0" layoutY="279.0" width="100" />
+      <Button fx:id="token_1" layoutX="305.0" layoutY="1222.0" mnemonicParsing="false" style="-fx-background-color: #000344;" text="Token1" />
+      <Button fx:id="token_2" layoutX="311.0" layoutY="1264.0" mnemonicParsing="false" text="Token2" />
+      <Button fx:id="dice" layoutX="745.0" layoutY="1229.0" mnemonicParsing="false" onMouseClicked="#requestRoll" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #006500;" text="Dice" />
    </children>
 </AnchorPane>
