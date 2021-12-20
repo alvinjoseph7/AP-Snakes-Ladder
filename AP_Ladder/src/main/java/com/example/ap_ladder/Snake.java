@@ -1,11 +1,11 @@
 package com.example.ap_ladder;
 
-public class Snakes implements Movable {
+public class Snake implements Movable {
     private double x_beg;
     private double y_beg;
     private double x_end;
     private double y_end;
-    Snakes() {
+    Snake() {
 
     }
     public void setX_beg(double x) {
