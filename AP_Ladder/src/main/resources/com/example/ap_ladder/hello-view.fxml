@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Box?>
 
 
 <AnchorPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
@@ -16,5 +17,6 @@
       <Button fx:id="token_1" layoutY="400.0" mnemonicParsing="false" style="-fx-background-color: #000344;" text="Token1" />
       <Button fx:id="token_2" layoutY="425.0" mnemonicParsing="false" text="Token2" />
       <Button fx:id="dice" layoutX="118.0" layoutY="403.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="42.0" style="-fx-background-color: #006500;" text="Dice" />
+      <Box depth="100" height="100" layoutX="337.0" layoutY="279.0" width="100" />
    </children>
 </AnchorPane>
