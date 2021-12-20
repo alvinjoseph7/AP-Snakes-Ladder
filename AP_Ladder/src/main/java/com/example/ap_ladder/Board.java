@@ -1,21 +1,45 @@
 package com.example.ap_ladder;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Random;
+
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+
 public class Board {
-    static public Dice dice;
-    public Board() {
-        dice = new Dice();
-        
+
+    // static public Dice dice;
+    static private Button dice;
+    static private int diceNo = 1; 
+    static final public double X_BOX; // = <fill it>; 
+    static final public double Y_BOX; // = <fill it>; 
+
+    public Board(Button dice) {
+        // this.dice = new Dice(dice);
+        this.dice = dice;
     }
-    public int rollDice() {
-         /*
-        1. generate int random no
-        2. show animation
+
+    public static int getDiceNo() {
+        return diceNo;
+    }
+
+
+    public static void setDiceNo(int diceNo) {
+        Board.diceNo = diceNo;
+    }
+
+    public int rollDice() throws FileNotFoundException {
+        for (int i = 0; i < 6; i++) {
+            // use this to show rolling animation
+            // Image img = new Image(new FileInputStream("path"));
+        }
         
-        */
-        
-        //show animation here
-        int diceResult = (int)java.lang.Math.random();
+        Random rand = new Random();
+        int diceResult = rand.nextInt(6) + 1;
         return diceResult;
     }
+
+
 
 }
