@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 
 public class HelloController {
     Board board;
@@ -17,6 +18,12 @@ public class HelloController {
     
     @FXML
     private Button dice;
+
+    @FXML
+    private Rectangle rightShadow;
+
+    @FXML
+    private Rectangle leftShadow;
 
     @FXML
     private ImageView img11;
@@ -32,17 +39,25 @@ public class HelloController {
     @FXML
     private Label welcomeText;
 
+    private boolean myTurn;
+
     
     @FXML    
     public void requestRoll(MouseEvent mouseEvent) throws InterruptedException, FileNotFoundException {
+        
+        switchShadow();
         int diceResult = board.rollDice();
         MovePlayer mp1 = new MovePlayer(player1, diceResult);
         
         mp1.join();
         yieldToComputer();
+        // right_shadow.setV
     }
 
+
     private void yieldToComputer() throws FileNotFoundException {
+        // leftShadow.setVisible(true);
+        // rightShadow.setVisible(false);
         int diceResult = board.rollDice();
         MovePlayer mp2 = new MovePlayer(player2, diceResult);
 
@@ -63,12 +78,8 @@ public class HelloController {
 
     void initalize() {
         board = new Board(dice);
-
         player1 = new Player(token_1);
         player2 = new Player(token_2);
-        // turn = true;
-
-        
     }
 }
 
@@ -103,6 +114,7 @@ class MovePlayer extends Thread {
 
     @Override
     public void run() {
+        
         int number = result;
         // TODO Auto-generated method stub
         while (number-- != 0) {
@@ -116,6 +128,16 @@ class MovePlayer extends Thread {
                 e.printStackTrace();
             }
 
+        }
+    }
+
+    private void switchShadow() {
+        if (myTurn) {
+            leftShadow.setVisible(false);
+            rightShadow.setVisible(true);
+        } else {
+            leftShadow.setVisible(true);
+            rightShadow.setVisible(false);
         }
     }
 }
