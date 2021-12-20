@@ -16,11 +16,11 @@ public class Token {
     }
 
     public void transX() {
-        this.button.setTranslateX(value);
+        this.button.setTranslateX(Board.X_BOX);
     }
 
 	public void transY() {
-        this.button.setTranslateY(value);
+        this.button.setTranslateY(Board.Y_BOX);
     }
     
     

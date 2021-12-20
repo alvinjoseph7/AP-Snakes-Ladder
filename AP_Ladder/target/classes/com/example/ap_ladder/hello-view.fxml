@@ -4,16 +4,95 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1434.0" prefWidth="1673.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="577.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_ladder.HelloController">
    <children>
-      <ImageView fx:id="img11" fitHeight="1000.0" fitWidth="1000.0" layoutX="269.0" layoutY="185.0" onMouseClicked="#bkgdTouch" pickOnBounds="true">
+      <ImageView fx:id="img11" fitHeight="400.0" fitWidth="400.0" onMouseClicked="#bkgdTouch" pickOnBounds="true">
          <image>
             <Image url="@snakes_ladders.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="token_1" layoutX="305.0" layoutY="1222.0" mnemonicParsing="false" style="-fx-background-color: #000344;" text="Token1" />
-      <Button fx:id="token_2" layoutX="311.0" layoutY="1264.0" mnemonicParsing="false" text="Token2" />
-      <Button fx:id="dice" layoutX="745.0" layoutY="1229.0" mnemonicParsing="false" onMouseClicked="#requestRoll" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #006500;" text="Dice" />
+      <ImageView fitHeight="146.0" fitWidth="400.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@snakes-red.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="token_1" layoutY="412.0" mnemonicParsing="false" style="-fx-background-color: #000344;" text="Token1" textFill="WHITE" />
+      <Button fx:id="token_2" layoutY="450.0" mnemonicParsing="false" text="Token2" />
+      <Line endX="100.00003051757812" endY="-75.0" layoutX="301.0" layoutY="476.0" startX="-301.0" startY="-75.0" stroke="#a6ff99" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#123d65" height="49.0" layoutX="64.0" layoutY="437.0" strokeType="INSIDE" strokeWidth="4.0" width="276.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3137255012989044" green="0.23529411852359772" blue="0.9137254953384399" opacity="0.7099999785423279" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.007633587786259542">
+                     <color>
+                        <Color red="0.3137255012989044" green="0.23529411852359772" blue="0.9137254953384399" opacity="0.7099999785423279" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.8825856600090619">
+                     <color>
+                        <Color red="0.8329723477363586" green="0.21388347446918488" blue="0.8771929740905762" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.3137255012989044" green="0.23529411852359772" blue="0.9137254953384399" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="50.0" layoutX="290.0" layoutY="437.0" stroke="#ffee03ca" strokeType="INSIDE" strokeWidth="5.0" width="50.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="295.0" layoutY="440.0" stroke="#f75a0c" strokeType="INSIDE" strokeWidth="2.0" width="41.0" />
+      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="298.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@token_bkgd.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="295.0" layoutY="440.0" stroke="#1d1d1d" strokeType="INSIDE" width="41.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="40.0" layoutX="297.0" layoutY="442.0" stroke="#1d1d1d" strokeType="INSIDE" width="37.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="50.0" layoutX="64.0" layoutY="436.0" stroke="#ffee03cc" strokeType="INSIDE" strokeWidth="5.0" width="50.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="69.0" layoutY="439.0" stroke="#f75a0c" strokeType="INSIDE" strokeWidth="2.0" width="41.0" />
+      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="72.0" layoutY="442.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@token_bkgd.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="44.0" layoutX="69.0" layoutY="439.0" stroke="#1d1d1d" strokeType="INSIDE" width="41.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="40.0" layoutX="71.0" layoutY="441.0" stroke="#1d1d1d" strokeType="INSIDE" width="37.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="57.0" layoutX="170.0" layoutY="433.0" strokeType="INSIDE" strokeWidth="5.0" width="56.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3137255012989044" green="0.23529411852359772" blue="0.9137254953384399" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9736841917037964" green="0.09616634249687195" blue="0.9298083186149597" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="57.0" layoutX="170.0" layoutY="433.0" stroke="#1d1d1d" strokeType="INSIDE" strokeWidth="0.5" width="56.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" layoutX="175.0" layoutY="437.0" stroke="#1d1d1d" strokeType="INSIDE" strokeWidth="0.5" width="47.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="47.0" layoutX="176.0" layoutY="438.0" stroke="#918f8c" strokeType="INSIDE" strokeWidth="5.0" width="45.0" />
+      <Button fx:id="dice" layoutX="180.0" layoutY="443.0" mnemonicParsing="false" onMouseClicked="#requestRoll" prefHeight="36.0" prefWidth="35.0" style="-fx-background-color: #006500;" text="Dice" textFill="WHITE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000f0" height="54.0" layoutX="227.0" layoutY="436.0" opacity="0.72" stroke="#8a898300" strokeType="INSIDE" strokeWidth="5.0" width="116.0" />
    </children>
 </AnchorPane>

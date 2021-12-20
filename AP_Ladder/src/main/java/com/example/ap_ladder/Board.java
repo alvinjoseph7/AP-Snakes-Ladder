@@ -12,8 +12,8 @@ public class Board {
     // static public Dice dice;
     static private Button dice;
     static private int diceNo = 1; 
-    static final public double X_BOX; // = <fill it>; 
-    static final public double Y_BOX; // = <fill it>; 
+    static final public double X_BOX = 0; // = <fill it>; 
+    static final public double Y_BOX = 0; // = <fill it>; 
 
     public Board(Button dice) {
         // this.dice = new Dice(dice);
