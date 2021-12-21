@@ -17,7 +17,7 @@
             <Image url="@snakes_ladders.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="146.0" fitWidth="400.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="146.0" fitWidth="400.0" layoutY="402.0" onMouseClicked="#bkgdTouch" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@snakes-red.jpg" />
          </image>
@@ -25,7 +25,7 @@
       <Button fx:id="token_1" layoutX="2.0" layoutY="410.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="22.0" style="-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/green_tok.png'); -fx-background-color: transparent; -fx-background-size: cover;" text="Token1" textFill="#f7f7f700" />
       <Button fx:id="token_2" layoutX="23.0" layoutY="411.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="22.0" style="-fx-background-color: transparent; -fx-background-size: cover; -fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/blue_tok.png');" text="Token2" textFill="TRANSPARENT" />
       <Line endX="100.00003051757812" endY="-75.0" layoutX="301.0" layoutY="476.0" startX="-301.0" startY="-75.0" stroke="#a6ff99" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#123d65" height="49.0" layoutX="64.0" layoutY="437.0" strokeType="INSIDE" strokeWidth="4.0" width="276.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#123d65" height="49.0" layoutX="64.0" layoutY="437.0" onMouseClicked="#bkgdTouch" strokeType="INSIDE" strokeWidth="4.0" width="276.0">
          <stroke>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -90,11 +90,6 @@
          </stroke>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="57.0" layoutX="170.0" layoutY="433.0" stroke="#1d1d1d" strokeType="INSIDE" strokeWidth="0.5" width="56.0" />
-      <ImageView fitHeight="35.0" fitWidth="45.0" layoutX="179.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@arrow.png" />
-         </image>
-      </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" layoutX="175.0" layoutY="437.0" stroke="#1d1d1d" strokeType="INSIDE" strokeWidth="0.5" width="47.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="47.0" layoutX="176.0" layoutY="438.0" stroke="#bebbb7" strokeType="INSIDE" strokeWidth="4.0" width="45.0" />
       <Button fx:id="dice" layoutX="184.0" layoutY="446.0" mnemonicParsing="false" onMouseClicked="#requestRoll" prefHeight="30.0" prefWidth="30.0" style="-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/1.png'); -fx-background-size: cover;" text="Dice" textFill="WHITE" />
@@ -118,6 +113,11 @@
       <ImageView fitHeight="21.0" fitWidth="32.0" layoutX="6.0" layoutY="389.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@start-arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="lowArrow" fitHeight="30.0" fitWidth="37.0" layoutX="182.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@arrow.png" />
          </image>
       </ImageView>
    </children>

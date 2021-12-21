@@ -2,17 +2,20 @@ package com.example.ap_ladder;
 
 import java.io.FileNotFoundException;
 
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.Glow;
+import javafx.scene.effect.Lighting;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 public class HelloController {
     Board board;
@@ -68,33 +71,27 @@ public class HelloController {
         double x = event.getSceneX();
         double y = event.getSceneY();
         Circle c = new Circle(x, y, 10.0);
+
         c.setFill(Color.WHITE);
-        c.setEffect(new Glow(1.0));
+        c.setEffect(new Lighting());
         pane1.getChildren().add(c); 
-        
-        // try {
-        //     Thread.sleep(2000);
-        // } catch (Exception e) {
-        //     e.printStackTrace();
-        // }
-        // c.setVisible(false);
         
         Circle circ2 = new Circle(x, y, 70);
         circ2.setFill(Color.TRANSPARENT);
         circ2.setStroke(Color.WHITE);
         pane1.getChildren().add(circ2); 
-        
+
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.setAutoReverse(true);
+        circ2.setRadius(circ2.getRadius()*1.5);
+
+        Duration duration = Duration.millis(2000);
         // try {
         //     Thread.sleep(100);
         // } catch (Exception e) {
         //     e.printStackTrace();
         // }
-        circ2.setRadius(circ2.getRadius()*1.5);
-        try {
-            Thread.sleep(100);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         // c.setVisible(false);
         // circ2.setVisible(false);
 
@@ -133,12 +130,12 @@ class BackgroundTouch implements Runnable {
         c.setFill(Color.WHITE);
         c.setEffect(new Glow(1.0));
 
-        try {
-            Thread.sleep(100);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        c.setVisible(false);
+        // try {
+        //     Thread.sleep(100);
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
+        // c.setVisible(false);
 
         Circle circ2 = new Circle(x_pos, y_pos, 12);
         circ2.setFill(Color.TRANSPARENT);
