@@ -1,23 +1,33 @@
 package com.example.ap_ladder;
-import javafx.scene.control.Button;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Random;
+
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 
 public class Board {
 
-    // static public Dice dice;
-    //static private Button dice;
+    // static private Button dice;
+    // private double[][] maps;
     //static private int diceNo = 1;
-    private static final double X_BOX=0; // = <fill it>;
-    private static final double Y_BOX=0; // = <fill it>;
+    static public Dice dice;
+    private static final double X_BOX = 39; // = <fill it>;
+    private static final double Y_BOX = 41; // = <fill it>;
     private Movable[] elements;
-    private double[][] maps;
-    public Board(Button dice) {
-        // this.dice = new Dice(dice);
-        //this.dice = dice;
+    private static HashMap<Integer, Coordinate> map;
+
+
+    public Board(Button _dice) {
+        // this.dice = _dice;
+        // this.maps = new double[100][2];
+        this.dice = new Dice(_dice);
         this.elements = new Movable[20];
-        this.maps = new double[100][2];
-        this.initialise_mapping();
-        this.initialise_elements();
+        map = new HashMap<>(); 
+        this.init_mapping();
+        this.init_elements();
     }
     public int get_position(int pos) {
         int fin_pos = pos;
@@ -29,42 +39,35 @@ public class Board {
         }
         return fin_pos;
     }
-    public double get_X(int pos) {
-        return this.maps[pos][0];
+    
+    static public double get_X(int pos) {
+        // return this.maps[pos-1][0];
+        return map.get(pos).getX();
     }
 
-    public double get_Y(int pos) {
-        return this.maps[pos][1];
+    static public double get_Y(int pos) {
+        // return this.maps[pos-1][0];
+        return map.get(pos).getY();
     }
 
-    public double[][] getMaps() {
-        return maps;
-    }
 
-    /*  public static int getDiceNo() {
-            return diceNo;
-        }
+    private void init_mapping() {
+        double x_init = 1;
+        double y_init = 360;
 
-
-        public static void setDiceNo(int diceNo) {
-            Board.diceNo = diceNo;
-        }
-
-        public int rollDice() throws FileNotFoundException {
-            for (int i = 0; i < 6; i++) {
-                // use this to show rolling animation
-                // Image img = new Image(new FileInputStream("path"));
+        for (int pos = 1; pos <= 100; pos++) {
+            map.put(pos, new Coordinate(x_init, y_init));
+            if (pos % 10 == 0) {
+                y_init += Y_BOX;
+                continue;
             }
-
-            Random rand = new Random();
-            int diceResult = rand.nextInt(6) + 1;
-            return diceResult;
+            x_init += X_BOX;
+            
         }
-    */
-    private void initialise_mapping() {
-
     }
-    private void initialise_elements() {
+
+
+    private void init_elements() {
         this.elements[0] = new Ladder(4, 25);
         this.elements[1] = new Ladder(8, 31);
         this.elements[2] = new Ladder(21, 60);
@@ -87,3 +90,24 @@ public class Board {
         this.elements[19] = new Snake(90, 50);
     }
 }
+
+/*  public static int getDiceNo() {
+      return diceNo;
+  }
+
+
+  public static void setDiceNo(int diceNo) {
+      Board.diceNo = diceNo;
+  }
+
+  public int rollDice() throws FileNotFoundException {
+      for (int i = 0; i < 6; i++) {
+          // use this to show rolling animation
+          // Image img = new Image(new FileInputStream("path"));
+      }
+      
+      Random rand = new Random();
+      int diceResult = rand.nextInt(6) + 1;
+      return diceResult;
+  }
+*/
