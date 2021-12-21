@@ -18,7 +18,6 @@ public class HelloController {
     Board board;
     private Player[] player = new Player[2];
     private int turn;
-    // private Dice d1;
     
     @FXML
     private Button dice;
@@ -49,7 +48,7 @@ public class HelloController {
     @FXML    
     public void requestRoll(MouseEvent mouseEvent) throws InterruptedException, FileNotFoundException {
         switchShadow();
-        MovePlayer mp = new MovePlayer(player[turn]);
+        MovePlayer mp = new MovePlayer(player, turn, board);
         mp.join();
         this.turn = (this.turn == 1 ? 0:1);
  
