@@ -13,24 +13,24 @@ public class Board {
     // static private Button dice;
     // private double[][] maps;
     //static private int diceNo = 1;
-    private static Dice dice;
+    public static Dice dice;
     private static final double X_BOX = 39; // = <fill it>;
-    private static final double Y_BOX = 41; // = <fill it>;
+    private static final double Y_BOX = 40; // = <fill it>;
     private Movable[] elements;
     private static HashMap<Integer, Coordinate> map;
 
 
     public Board(Button _dice) {
-        this.dice = new Dice(_dice);
+        dice = new Dice(_dice);
         this.elements = new Movable[20];
         map = new HashMap<>(); 
         this.init_mapping();
         this.init_elements();
     }
 
-    public static Dice getDice() {
-        return dice;
-    }
+    // public static Dice getDice() {
+    //     return dice;
+    // }
     public int get_position(int pos) {
         int fin_pos = pos;
         for(int i = 0; i < 20; ++i) {
@@ -44,26 +44,34 @@ public class Board {
     
     static public double get_X(int pos) {
         // return this.maps[pos-1][0];
-        return map.get(pos).getX();
+        return map.get(pos + 1).getX();
     }
 
     static public double get_Y(int pos) {
         // return this.maps[pos-1][0];
-        return map.get(pos).getY();
+        return map.get(pos + 1).getY();
     }
 
 
     private void init_mapping() {
-        double x_init = 1;
+        double x_init = 10;
         double y_init = 360;
+        boolean towardRight = true;
 
         for (int pos = 1; pos <= 100; pos++) {
+
             map.put(pos, new Coordinate(x_init, y_init));
             if (pos % 10 == 0) {
-                y_init += Y_BOX;
+                y_init -= Y_BOX;
+                towardRight = !towardRight;
                 continue;
             }
-            x_init += X_BOX;
+            
+            if (towardRight)
+                x_init += X_BOX;
+            else
+                x_init -= X_BOX;
+
         }
     }
 

@@ -12,7 +12,7 @@ public class MovePlayer extends Thread {
 
     @Override
     public void run() {
-        int numb = Board.getDice().roll_dice();
+        int numb = Board.dice.roll_dice();
         if(!(this.player[this.t].isOn_the_board())) {
             if(numb != 1) {
                 //Label_updation
@@ -28,7 +28,7 @@ public class MovePlayer extends Thread {
             return;
         }
         for(int i = this.player[this.t].getPosition(); i < semi_final_pos; ++i) {
-            this.player[this.t].getToken().translate(this.b1.get_X(i), this.b1.get_Y(i));
+            this.player[this.t].getToken().translate(Board.get_X(i), Board.get_Y(i));
             try {
                 Thread.sleep(333);
             } catch (InterruptedException e) {
@@ -56,7 +56,7 @@ public class MovePlayer extends Thread {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        this.player[this.t].getToken().translate(this.b1.get_X(final_pos - 1), this.b1.get_Y(final_pos - 1));
+        this.player[this.t].getToken().translate(Board.get_X(final_pos - 1), Board.get_Y(final_pos - 1));
         /*
         while (number-- != 0) {
             // move once
