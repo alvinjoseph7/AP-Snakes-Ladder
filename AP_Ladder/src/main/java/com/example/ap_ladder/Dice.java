@@ -2,7 +2,6 @@ package com.example.ap_ladder;
 
 import javafx.application.Platform;
 import javafx.scene.control.Button;
-
 import java.util.Random;
 
 public class Dice {
@@ -16,18 +15,18 @@ public class Dice {
         Random rand = new Random();
         for (int i = 0; i < 6; i++) {
             int r = rand.nextInt(6) + 1;
-            String s = String.valueOf(r);
+            String s = "-fx-background-image: url('C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/" + String.valueOf(r) + ".png')";
+            Platform.runLater(new Dice_Animation(s, this.d));
             try {
                 Thread.sleep(300);}
             catch(Exception e) {
                 e.printStackTrace();
             }
-            Platform.runLater(new Dice_Animation(s, this.d));
             // use this to show rolling animation
             // Image img = new Image(new FileInputStream("path"));
         }
         this.numb = rand.nextInt(6) + 1;
-        String st = String.valueOf(this.numb);
+        String st = "-fx-background-image: url('C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/" + String.valueOf(this.numb) + ".png')";
         Platform.runLater(new Dice_Animation(st, this.d));
         return this.numb;
     }
@@ -43,6 +42,6 @@ class Dice_Animation implements Runnable {
     }
     @Override
     public void run() {
-        this.d.setText(this.s);
+        this.d.setStyle(this.s);
     }
 }

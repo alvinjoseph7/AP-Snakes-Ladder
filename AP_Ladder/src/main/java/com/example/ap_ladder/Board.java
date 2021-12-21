@@ -13,7 +13,7 @@ public class Board {
     // static private Button dice;
     // private double[][] maps;
     //static private int diceNo = 1;
-    static public Dice dice;
+    private static Dice dice;
     private static final double X_BOX = 39; // = <fill it>;
     private static final double Y_BOX = 41; // = <fill it>;
     private Movable[] elements;
@@ -21,13 +21,15 @@ public class Board {
 
 
     public Board(Button _dice) {
-        // this.dice = _dice;
-        // this.maps = new double[100][2];
         this.dice = new Dice(_dice);
         this.elements = new Movable[20];
         map = new HashMap<>(); 
         this.init_mapping();
         this.init_elements();
+    }
+
+    public static Dice getDice() {
+        return dice;
     }
     public int get_position(int pos) {
         int fin_pos = pos;
@@ -62,7 +64,6 @@ public class Board {
                 continue;
             }
             x_init += X_BOX;
-            
         }
     }
 
