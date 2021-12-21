@@ -6,16 +6,19 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class HelloController {
     Board board;
     private Player[] player = new Player[2];
     private int turn;
-    private Dice d1;
+    // private Dice d1;
     
     @FXML
     private Button dice;
@@ -40,43 +43,64 @@ public class HelloController {
     @FXML
     private Label welcomeText;
 
-    private boolean myTurn;
-
+    // private boolean myTurn;
+    // public Circle c;
     
     @FXML    
     public void requestRoll(MouseEvent mouseEvent) throws InterruptedException, FileNotFoundException {
-        //int diceResult = board.rollDice();
-        MovePlayer mp = new MovePlayer(player[turn], board, d1);
-        
+        switchShadow();
+        MovePlayer mp = new MovePlayer(player[turn]);
         mp.join();
-        if(this.turn == 1) {
-            this.turn = 0;
-        }
-        else {
-            this.turn = 1;
-        }
-
-        //yieldToComputer();
+        this.turn = (this.turn == 1 ? 0:1);
+ 
     }
-/*
-    private void yieldToComputer() throws FileNotFoundException {
-        // leftShadow.setVisible(true);
-        // rightShadow.setVisible(false);
-        int diceResult = board.rollDice();
-        MovePlayer mp2 = new MovePlayer(player2, diceResult);
 
-        // player2.move(diceResult);
+    
+    private void switchShadow() {
+        boolean vis = leftShadow.isVisible();
+        leftShadow.setVisible(!vis);
+        rightShadow.setVisible(vis);
+        
     }
-*/
-    @FXML
+    
+    // @FXML
     public void bkgdTouch(MouseEvent event) {
         double x = event.getSceneX();
         double y = event.getSceneY();
-        Platform.runLater(new BackgroundTouch(x, y));
+        Circle c = new Circle(x, y, 10.0);
+        c.setFill(Color.WHITE);
+        c.setEffect(new Glow(1.0));
+        pane1.getChildren().add(c); 
+        
+        // try {
+        //     Thread.sleep(2000);
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
+        // c.setVisible(false);
+        
+        Circle circ2 = new Circle(x, y, 70);
+        circ2.setFill(Color.TRANSPARENT);
+        circ2.setStroke(Color.WHITE);
+        pane1.getChildren().add(circ2); 
+        
+        // try {
+        //     Thread.sleep(100);
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        // }
+        circ2.setRadius(circ2.getRadius()*1.5);
+        try {
+            Thread.sleep(100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // c.setVisible(false);
+        // circ2.setVisible(false);
+
+        // Platform.runLater(new BackgroundTouch(x, y));
 
     }
-    
-    
     
     
 
@@ -85,11 +109,12 @@ public class HelloController {
         turn = 0;
         player[0] = new Player(token_1);
         player[1] = new Player(token_2);
-        d1 = new Dice(dice);
+        // d1 = new Dice(dice);
         // turn = true;
 
         
     }
+    
 }
 
 class BackgroundTouch implements Runnable {
@@ -104,50 +129,34 @@ class BackgroundTouch implements Runnable {
     @Override
     public void run() {
         // TODO Auto-generated method stub
+        Circle c = new Circle(x_pos, y_pos, 8);
+        c.setFill(Color.WHITE);
+        c.setEffect(new Glow(1.0));
+
+        try {
+            Thread.sleep(100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        c.setVisible(false);
+
+        Circle circ2 = new Circle(x_pos, y_pos, 12);
+        circ2.setFill(Color.TRANSPARENT);
+        circ2.setStroke(Color.WHITE);
         
-        //show touched animation here
-        //circles flowing out
+        try {
+            Thread.sleep(100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        circ2.setRadius(circ2.getRadius()*1.5);
+        try {
+            Thread.sleep(100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        circ2.setVisible(false);
 
     }
 
 }
-/*
-class MovePlayer extends Thread {
-    Player player;
-    int result;
-    public MovePlayer(Player player, int diceResult) {
-        this.player = player;
-        this.result = diceResult;
-
-    }
-
-    @Override
-    public void run() {
-        
-        int number = result;
-        // TODO Auto-generated method stub
-        while (number-- != 0) {
-            // move once
-            this.player.move();
-
-            //pause for 100ms for animation feel
-            try {
-                Thread.sleep(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
-
-    private void switchShadow() {
-        if (myTurn) {
-            leftShadow.setVisible(false);
-            rightShadow.setVisible(true);
-        } else {
-            leftShadow.setVisible(true);
-            rightShadow.setVisible(false);
-        }
-    }
-}
-*/

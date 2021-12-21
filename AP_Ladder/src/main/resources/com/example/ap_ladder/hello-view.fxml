@@ -94,6 +94,6 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="47.0" layoutX="176.0" layoutY="438.0" stroke="#918f8c" strokeType="INSIDE" strokeWidth="5.0" width="45.0" />
       <Button fx:id="dice" layoutX="180.0" layoutY="443.0" mnemonicParsing="false" onMouseClicked="#requestRoll" prefHeight="36.0" prefWidth="35.0" style="-fx-background-color: #006500;" text="Dice" textFill="WHITE" />
       <Rectangle fx:id="rightShadow" arcHeight="5.0" arcWidth="5.0" fill="#000000f0" height="54.0" layoutX="227.0" layoutY="436.0" opacity="0.72" stroke="#8a898300" strokeType="INSIDE" strokeWidth="5.0" width="116.0" />
-      <Rectangle fx:id="leftShadow" arcHeight="5.0" arcWidth="5.0" fill="#000000f0" height="54.0" layoutX="62.0" layoutY="435.0" opacity="0.72" stroke="#8a898300" strokeType="INSIDE" strokeWidth="5.0" width="110.0" />
+      <Rectangle fx:id="leftShadow" arcHeight="5.0" arcWidth="5.0" fill="#000000f0" height="54.0" layoutX="62.0" layoutY="435.0" opacity="0.72" stroke="#8a898300" strokeType="INSIDE" strokeWidth="5.0" visible="false" width="110.0" />
    </children>
 </AnchorPane>
