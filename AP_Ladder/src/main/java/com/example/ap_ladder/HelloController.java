@@ -58,11 +58,11 @@ public class HelloController {
     
     @FXML    
     public void requestRoll(MouseEvent mouseEvent) throws InterruptedException, FileNotFoundException {
+        switchShadow();
         MovePlayer mp = new MovePlayer(player, turn, board);
         mp.start();
         mp.join();
         this.turn = (this.turn == 1 ? 0:1);
-        switchShadow();
  
     }
 
