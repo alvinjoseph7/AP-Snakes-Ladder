@@ -14,8 +14,8 @@ public class Board {
     // private double[][] maps;
     //static private int diceNo = 1;
     public static Dice dice;
-    private static final double X_BOX = 40; // = <fill it>;
-    private static final double Y_BOX = 40; // = <fill it>;
+    private static final double X_BOX = 40; 
+    private static final double Y_BOX = 40; 
     private Movable[] elements;
     private static HashMap<Integer, Coordinate> map;
 
@@ -28,13 +28,10 @@ public class Board {
         this.init_elements();
     }
 
-    // public static Dice getDice() {
-    //     return dice;
-    // }
-    public int get_position(int pos) {
-        int fin_pos = pos;
+    public int get_position(int semi_pos) {
+        int fin_pos = semi_pos;
         for(int i = 0; i < 20; ++i) {
-            if (pos == this.elements[i].getInit_pos()) {
+            if (semi_pos == this.elements[i].getInit_pos()) {
                 fin_pos = this.elements[i].getFinal_pos();
                 break;
             }
@@ -43,12 +40,10 @@ public class Board {
     }
     
     static public double get_X(int pos) {
-        // return this.maps[pos-1][0];
         return map.get(pos + 1).getX();
     }
 
     static public double get_Y(int pos) {
-        // return this.maps[pos-1][0];
         return map.get(pos + 1).getY();
     }
 

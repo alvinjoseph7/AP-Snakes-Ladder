@@ -52,12 +52,6 @@ public class HelloController {
     private Button token_2;
 
     @FXML
-    private Label welcomeText;
-
-    @FXML
-    private  ImageView arrow;
-
-    @FXML
     private Rectangle winRect;
 
     @FXML
@@ -82,7 +76,7 @@ public class HelloController {
         
     }
     
-    // @FXML
+    @FXML
     public void bkgdTouch(MouseEvent event) {
         double x = event.getSceneX();
         double y = event.getSceneY();
@@ -104,8 +98,6 @@ public class HelloController {
         player[0] = new Player(token_1);
         player[1] = new Player(token_2);
         trns = new Transtok();
-        // d1 = new Dice(dice);
-        // turn = true;
 
         
     }

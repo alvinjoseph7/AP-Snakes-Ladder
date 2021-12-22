@@ -5,7 +5,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.control.Button;
 
 public class Token {
-    public Button button;
+    private Button button;
     private double x_curr;
     private double y_curr;
     private final double x_init;
@@ -55,15 +55,4 @@ public class Token {
         return y_init;
     }
 
-    /*
-    public void transX() {
-        this.button.setTranslateX(Board.X_BOX);
-    }
-
-	public void transY() {
-        this.button.setTranslateY(Board.Y_BOX);
-    }
-
-
- */
 }

@@ -14,7 +14,7 @@ public class Player {
         this.position = 0;
         this.on_the_board = false;
         this.same_square = false;
-    }
+    }   
 
     public Token getToken() {
         return token;

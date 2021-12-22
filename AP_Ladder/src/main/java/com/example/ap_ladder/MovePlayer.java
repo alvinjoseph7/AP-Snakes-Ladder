@@ -26,42 +26,44 @@ public class MovePlayer extends Thread {
         int numb = Board.dice.roll_dice();
         System.out.println(numb);
         if(!(this.player[this.t].isOn_the_board())) {
-            if(numb != 1) {
-                //Label_updation
+            if(numb != 1) 
                 return;
-            }
-            else {
+            else 
                 this.player[this.t].setOn_the_board();
-            }
         }
         int semi_final_pos = numb + this.player[this.t].getPosition();
         if(semi_final_pos > 100) {
-            //Label Updation
             return;
         }
+
         this.tns.setparam(this.player[this.t], semi_final_pos);
         this.tns.start();
         this.player[this.t].setPosition(semi_final_pos);
+
+        // if finish line reached
         if(semi_final_pos == 100) {
             this.player[this.t].setPosition(100);
-            //l UpdaLabetion
-            
             Platform.runLater(new AfterWin(winText, winRectangle, this.t));
             
-            // System.exit(0);
         }
+        //-----------------------------------------------------------------------
         int final_pos = b1.get_position(semi_final_pos);
-        //if(final_pos == semi_final_pos) {
-        //    return;
-        //}
-        this.player[this.t].setPosition(final_pos - 1);
-        this.tns.setparam(this.player[this.t], final_pos);
-        this.tns.start();
+
+        //ladder or snake encountered
+        if(final_pos != semi_final_pos) {
+            // Platform.runLater(new Encounter(player, final_pos, semi_final_pos));
+            this.player[this.t].setPosition(final_pos - 1);
+            this.tns.setparam(this.player[this.t], final_pos);
+            this.tns.start();
+
+        }
         this.player[this.t].setPosition(final_pos);
         int tal = 0;
         if(this.t == 0) {
             tal = 1;
         }
+
+
         if(this.player[this.t].isSame_square()) {
             translationAfterSamePosition(final_pos, tal);
         }
@@ -114,15 +116,14 @@ class AfterWin implements Runnable {
         if (turn == 0)
             winText.setText("Blue won!" );
         else
-            winText.setText("green won!" );
+            winText.setText("Green won!" );
         winText.setVisible(true);
-        try {
-            Thread.sleep(3000);}
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-        System.exit(0);
+        Board.dice.getButton().setDisable(true);
         
     }
+
+}
+
+class Encounter {
 
 }

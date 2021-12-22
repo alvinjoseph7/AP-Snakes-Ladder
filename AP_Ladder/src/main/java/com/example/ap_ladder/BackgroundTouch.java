@@ -10,15 +10,6 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 class BackgroundTouch implements Runnable {
-    /* private double x_pos;
-    private double y_pos;
-    private AnchorPane pane;
-
-    public BackgroundTouch(double x, double y, AnchorPane pane1) {
-        this.x_pos = x;
-        this.y_pos = y;
-        this.pane = pane1;
-    } */
 
 
     private Circle c;

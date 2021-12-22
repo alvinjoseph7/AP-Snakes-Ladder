@@ -22,6 +22,10 @@ public class Dice {
         this.d = dice;
     }
 
+    public Button getButton() {
+        return d;
+    }
+
     public int roll_dice()  {
 
         Random rand = new Random();
@@ -37,9 +41,7 @@ class DiceAnimation extends AnimationTimer implements Runnable {
     private final long interval = 1000000000L / FRAMES_PER_SEC;
     private long last = 0;
     private int count;
-    // private Button b;
     private Button button;
-    // private int final;
     private int finalNo;
 
     DiceAnimation(Button b1, int r) {
@@ -48,9 +50,10 @@ class DiceAnimation extends AnimationTimer implements Runnable {
         this.finalNo =r;
     }
 
+    
+
     @Override
     public void run() {
-        // TODO Auto-generated method stub
         scaleUpDice();
         DiceAnimation diceAnim = new DiceAnimation(this.button, finalNo);
         diceAnim.start();
@@ -88,14 +91,9 @@ class DiceAnimation extends AnimationTimer implements Runnable {
         scale.setFromY(1.5);
         scale.setToX(1);
         scale.setToY(1);
-
-        // setting the duration for the Translate transition
         scale.setDuration(Duration.millis(200));
-
-        // setting cycle count for the Translate transition
         scale.setCycleCount(1);
-
-        // the transition will set to be auto reversed by setting this to true
+        
         scale.setAutoReverse(true);
         scale.setNode(this.button);
         scale.play();
@@ -107,12 +105,9 @@ class DiceAnimation extends AnimationTimer implements Runnable {
         scale.setFromY(1);
         scale.setToX(1.2);
         scale.setToY(1.2);
-        // setting the duration for the Translate transition
         scale.setDuration(Duration.millis(200));
-        // setting cycle count for the Translate transition
         scale.setCycleCount(1);
 
-        // the transition will set to be auto reversed by setting this to true
         scale.setAutoReverse(true);
         scale.setNode(this.button);
         scale.play();
@@ -132,6 +127,7 @@ class DiceAnimation extends AnimationTimer implements Runnable {
         trans.setNode(this.button);
         trans.play();
     }
+
     
     
 }
