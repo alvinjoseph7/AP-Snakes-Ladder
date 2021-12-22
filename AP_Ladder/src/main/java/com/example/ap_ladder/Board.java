@@ -14,7 +14,7 @@ public class Board {
     // private double[][] maps;
     //static private int diceNo = 1;
     public static Dice dice;
-    private static final double X_BOX = 39; // = <fill it>;
+    private static final double X_BOX = 40; // = <fill it>;
     private static final double Y_BOX = 40; // = <fill it>;
     private Movable[] elements;
     private static HashMap<Integer, Coordinate> map;
