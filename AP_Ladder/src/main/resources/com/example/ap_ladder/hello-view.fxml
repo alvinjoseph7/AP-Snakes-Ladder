@@ -9,6 +9,8 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="577.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_ladder.HelloController">
    <children>
@@ -113,13 +115,19 @@
             <Image url="@start-arrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrow" fitHeight="30.0" fitWidth="37.0" layoutX="182.0" layoutY="411.0" onMouseClicked="#bkgdTouch" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow" fitHeight="30.0" fitWidth="37.0" layoutX="182.0" layoutY="395.0" onMouseClicked="#bkgdTouch" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@arrow.png" />
          </image>
       </ImageView>
       <!-- <Button fx:id="token_1" layoutX="2.0" layoutY="410.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="22.0" style="-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/green_tok.png'); -fx-background-color: transparent; -fx-background-size: cover;" text="Token1" textFill="#f7f7f700" /> -->
-      <Button fx:id="token_1" layoutX="2.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#bkgdTouch" prefHeight="38.0" prefWidth="22.0" style="-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/green_tok.png'); -fx-background-color: transparent; -fx-background-size: cover;" text="Token1" textFill="#f7f7f700" />
-      <Button fx:id="token_2" layoutX="23.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#bkgdTouch" prefHeight="38.0" prefWidth="22.0" style="-fx-background-color: transparent; -fx-background-size: cover; -fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/blue_tok.png');" text="Token2" textFill="TRANSPARENT" />
+      <Button fx:id="token_1" layoutX="2.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#bkgdTouch" prefHeight="38.0" prefWidth="22.0" style="-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/blue_tok.png'); -fx-background-color: transparent; -fx-background-size: cover;" text="Token1" textFill="#f7f7f700" />
+      <Button fx:id="token_2" layoutX="23.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#bkgdTouch" prefHeight="38.0" prefWidth="22.0" style="-fx-background-color: transparent; -fx-background-size: cover; -fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/green_tok.png');" text="Token2" textFill="TRANSPARENT" />
+      <Rectangle fx:id="winRect" arcHeight="5.0" arcWidth="5.0" height="549.0" opacity="0.7" stroke="BLACK" strokeType="INSIDE" visible="false" width="413.0" />
+      <Text fx:id="winText" fill="#63ff00" layoutX="66.0" layoutY="205.0" stroke="#090909" strokeType="OUTSIDE" strokeWidth="2.0" text="You won!" visible="false">
+         <font>
+            <Font size="61.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

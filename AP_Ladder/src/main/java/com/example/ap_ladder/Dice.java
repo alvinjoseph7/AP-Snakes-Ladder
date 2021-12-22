@@ -22,67 +22,65 @@ public class Dice {
         this.d = dice;
     }
 
-    public int roll_dice() {
+    public int roll_dice()  {
 
-        Platform.runLater(new Dice_Animation(this.d));
-
-        //display final result
         Random rand = new Random();
         int r = rand.nextInt(6) + 1;
-        String st = "-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/"
-                + String.valueOf(r) + ".png')";
-        String str = st + "; -fx-background-size: cover;";
-
-        Platform.runLater(new ShowFinalNo(this.d, str));
+        Platform.runLater(new DiceAnimation(this.d, r));
         return r;
     }
 
 }
 
-class Dice_Animation implements Runnable {
+class DiceAnimation extends AnimationTimer implements Runnable {
+    private final long FRAMES_PER_SEC = 3L;
+    private final long interval = 1000000000L / FRAMES_PER_SEC;
+    private long last = 0;
+    private int count;
+    // private Button b;
     private Button button;
+    // private int final;
+    private int finalNo;
 
-    Dice_Animation(Button d1) {
-        this.button = d1;
+    DiceAnimation(Button b1, int r) {
+        this.button = b1;
+        this.count = 1;
+        this.finalNo =r;
     }
 
     @Override
     public void run() {
+        // TODO Auto-generated method stub
         scaleUpDice();
-        class trans extends AnimationTimer {
-            private final long FRAMES_PER_SEC = 3L;
-            private final long interval = 1000000000L / FRAMES_PER_SEC;
-            private long last = 0;
-            private int count;
-            private Button b;
+        DiceAnimation diceAnim = new DiceAnimation(this.button, finalNo);
+        diceAnim.start();
+    }
 
-            trans(Button b1) {
-                this.b = b1;
-            }
+    @Override
+    public void handle(long now) {
+        if (now - last > interval) {
+            Random rand = new Random();
+            int r = rand.nextInt(6) + 1;
+            rotateDice();
 
-
-            @Override
-            public void handle(long now) {
-                if (now - last > interval) {
-                    Random rand = new Random();
-                    int r = rand.nextInt(6) + 1;
-                    rotateDice();
-                    String str = "-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/"
-                            + String.valueOf(r) + ".png')";
-                    this.b.setStyle(str + "; -fx-background-size: cover;");
-                    last = now;
-                    ++count;
-                    if (count >= 3) {
-                        scaleDownDice();
-                        this.stop();
-                    }
-                }
+            String str = "-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/"
+                    + String.valueOf(r) + ".png')";
+            this.button.setStyle(str + "; -fx-background-size: cover;");
+            last = now;
+            ++count;
+            System.out.println("Number: " + r);
+            if (count >= 3) {
+                scaleDownDice();
+                str = "-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/"
+                    + String.valueOf(finalNo) + ".png')";
+            this.button.setStyle(str + "; -fx-background-size: cover;");
+                this.stop();
             }
         }
-        trans diceAnim = new trans(this.button);
-        diceAnim.start();
- 
     }
+
+    
+    
 
     private void scaleDownDice() {
         ScaleTransition scale = new ScaleTransition();
@@ -130,23 +128,10 @@ class Dice_Animation implements Runnable {
         trans.setCycleCount(1);
         // Reverse direction on alternating cycles
         trans.setAutoReverse(true);
-
+        
         trans.setNode(this.button);
         trans.play();
     }
-}
-
-class ShowFinalNo implements Runnable {
-    private Button button;
-    private String imgVal;
-
-    ShowFinalNo(Button button, String str) {
-        this.button = button;
-        this.imgVal = str;
-    }
-
-    @Override
-    public void run() {
-        this.button.setStyle(imgVal);
-    }
+    
+    
 }

@@ -22,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class HelloController {
@@ -56,13 +57,17 @@ public class HelloController {
     @FXML
     private  ImageView arrow;
 
-    // private boolean myTurn;
-    // public Circle c;
+    @FXML
+    private Rectangle winRect;
+
+    @FXML
+    private Text winText;
+
     
     @FXML    
     public void requestRoll(MouseEvent mouseEvent) throws InterruptedException, FileNotFoundException {
+        MovePlayer mp = new MovePlayer(player, turn, board, trns, winRect, winText);
         switchShadow();
-        MovePlayer mp = new MovePlayer(player, turn, board, trns);
         mp.start();
         mp.join();
         this.turn = (this.turn == 1 ? 0:1);
