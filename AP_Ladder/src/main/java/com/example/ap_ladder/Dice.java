@@ -22,9 +22,9 @@ public class Dice {
     }
     public int roll_dice() {
    
-        scaleUpDice();
+        //scaleUpDice();
         Platform.runLater(new Dice_Animation(this.d));
-        scaleDownDice();
+        //scaleDownDice();
         /* 
         for (int i = 0; i < 6; i++) {
             int r = rand.nextInt(6) + 1;
@@ -34,12 +34,12 @@ public class Dice {
             Platform.runLater(new Dice_Animation(s, this.d));
 
         */
-        //display final number 
-        /* this.numb = rand.nextInt(6) + 1;
+        //display final number
+        Random r = new Random();
+        this.numb = r.nextInt(6) + 1;
         String st = "-fx-background-image: url('C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/" + String.valueOf(this.numb) + ".png')";
-        String st = String.valueOf(this.numb);
-        Platform.runLater(new Dice_Animation(st, this.d));
-        */
+        String str = st + "; -fx-background-size: cover;";
+        Platform.runLater(new Dice_Animation2(this.d, st));
         return this.numb; 
     }
     private void scaleDownDice() {
@@ -93,7 +93,8 @@ class Dice_Animation implements Runnable {
 
     @Override
     public void run() {
-        Random rand = new Random();
+        scaleUpDice();
+//        Random rand = new Random();
         // if (i == 0) scaleUpDice();
         // scaleUpDice();
         // AnimationTimer timer = new AnimationTimerExtension(this.button);
@@ -103,17 +104,52 @@ class Dice_Animation implements Runnable {
         // for (int i = 0; i < 2; i++) {
         
         
-            int r = rand.nextInt(6) + 1;
-            try {
-                Thread.sleep(500);
-            } catch (Exception e) {
-                // TODO: handle exception
-                e.printStackTrace();
-            }  
-            rotateDice();
+//            int r = rand.nextInt(6) + 1;
+//            try {
+//                Thread.sleep(500);
+//            } catch (Exception e) {
+//                // TODO: handle exception
+//                e.printStackTrace();
+//            }
+            class trans extends AnimationTimer {
+                private final long FRAMES_PER_SEC = 3L;
+                private final long interval = 1000000000L / FRAMES_PER_SEC;
+                private long last = 0;
+                private int count;
+                private Button b;
+                trans(Button b1) {
+                    this.b = b1;
+                }
+//                public void setparam(Player p1, int p) {
+//                    this.p1 = p1;
+//                    this.poss = p;
+//                    this.last = 0;
+//                    this.count = this.p1.getPosition();
+//                }
+
+                @Override
+                public void handle(long now) {
+                    if(now - last > interval) {
+                        Random rand = new Random();
+                        int r = rand.nextInt(6) + 1;
+                        rotateDice();
+                        String str = "-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/" + String.valueOf(r) + ".png')";
+                        this.b.setStyle (str + "; -fx-background-size: cover;");
+                        last = now;
+                        ++count;
+                        if(count >= 5) {
+                            this.stop();
+                        }
+                    }
+                }
+            }
+            trans danim = new trans(this.button);
+            danim.start();
+            scaleDownDice();
+            //otateDice();
             
-            String str = "-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/" + String.valueOf(r) + ".png')";
-            this.button.setStyle (str + "; -fx-background-size: cover;");
+//            String str = "-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/" + String.valueOf(r) + ".png')";
+//            this.button.setStyle (str + "; -fx-background-size: cover;");
            
         
             // PauseTransition pause = new PauseTransition(Duration.seconds(0.1));
@@ -203,5 +239,18 @@ class Dice_Animation implements Runnable {
         // } 
         
         System.out.println("End of rotate");
+    }
+}
+
+class Dice_Animation2 implements Runnable {
+    private Button d;
+    private String s;
+    Dice_Animation2(Button d1, String s1) {
+        this.s = s1;
+        this.d = d1;
+    }
+    @Override
+    public void run() {
+        this.d.setStyle(this.s);
     }
 }
