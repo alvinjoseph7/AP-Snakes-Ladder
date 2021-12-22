@@ -1,12 +1,7 @@
 package com.example.ap_ladder;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
-import java.util.Random;
-
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 
 public class Board {
 

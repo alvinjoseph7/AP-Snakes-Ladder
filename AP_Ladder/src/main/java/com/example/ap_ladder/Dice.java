@@ -1,12 +1,9 @@
 package com.example.ap_ladder;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.ParallelTransition;
-import javafx.animation.PauseTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
 import javafx.scene.control.Button;
 import javafx.util.Duration;
 
@@ -71,7 +68,6 @@ class DiceAnimation extends AnimationTimer implements Runnable {
             this.button.setStyle(str + "; -fx-background-size: cover;");
             last = now;
             ++count;
-            System.out.println("Number: " + r);
             if (count >= 3) {
                 scaleDownDice();
                 str = "-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/"
@@ -119,7 +115,6 @@ class DiceAnimation extends AnimationTimer implements Runnable {
         trans.setDuration(Duration.millis(500));
         trans.setFromAngle(0.0);
         trans.setToAngle(360.0);
-        // Let the animation run forever
         trans.setCycleCount(1);
         // Reverse direction on alternating cycles
         trans.setAutoReverse(true);

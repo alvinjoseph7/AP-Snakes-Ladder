@@ -24,7 +24,6 @@ public class MovePlayer extends Thread {
     @Override
     public void run() {
         int numb = Board.dice.roll_dice();
-        System.out.println(numb);
         if(!(this.player[this.t].isOn_the_board())) {
             if(numb != 1) 
                 return;
@@ -51,7 +50,6 @@ public class MovePlayer extends Thread {
 
         //ladder or snake encountered
         if(final_pos != semi_final_pos) {
-            // Platform.runLater(new Encounter(player, final_pos, semi_final_pos));
             this.player[this.t].setPosition(final_pos - 1);
             this.tns.setparam(this.player[this.t], final_pos);
             this.tns.start();
@@ -124,6 +122,3 @@ class AfterWin implements Runnable {
 
 }
 
-class Encounter {
-
-}

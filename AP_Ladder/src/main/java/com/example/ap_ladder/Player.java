@@ -1,7 +1,6 @@
 package com.example.ap_ladder;
 
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 
 public class Player {
     private Token token;
