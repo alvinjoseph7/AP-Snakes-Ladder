@@ -89,14 +89,14 @@
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="57.0" layoutX="170.0" layoutY="433.0" onMouseClicked="#bkgdTouch" stroke="#1d1d1d" strokeType="INSIDE" strokeWidth="0.5" width="56.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" layoutX="175.0" layoutY="437.0" stroke="#1d1d1d" strokeType="INSIDE" strokeWidth="0.5" width="47.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="47.0" layoutX="176.0" layoutY="438.0" stroke="#bebbb7" strokeType="INSIDE" strokeWidth="4.0" width="45.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="47.0" layoutX="176.0" layoutY="438.0" onMouseClicked="#bkgdTouch" stroke="#bebbb7" strokeType="INSIDE" strokeWidth="4.0" width="45.0" />
       <Button fx:id="dice" layoutX="184.0" layoutY="446.0" mnemonicParsing="false" onMouseClicked="#requestRoll" prefHeight="30.0" prefWidth="30.0" text="1" textFill="RED" />
-      <ImageView fitHeight="35.0" fitWidth="24.0" layoutX="78.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="24.0" layoutX="78.0" layoutY="443.0" onMouseClicked="#bkgdTouch" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@blue_tok.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="22.0" layoutX="305.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="22.0" layoutX="305.0" layoutY="443.0" onMouseClicked="#bkgdTouch" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@green_tok.png" />
          </image>
@@ -113,13 +113,13 @@
             <Image url="@start-arrow.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="lowArrow" fitHeight="30.0" fitWidth="37.0" layoutX="182.0" layoutY="411.0" onMouseClicked="#bkgdTouch" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrow" fitHeight="30.0" fitWidth="37.0" layoutX="182.0" layoutY="411.0" onMouseClicked="#bkgdTouch" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@arrow.png" />
          </image>
       </ImageView>
       <!-- <Button fx:id="token_1" layoutX="2.0" layoutY="410.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="22.0" style="-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/green_tok.png'); -fx-background-color: transparent; -fx-background-size: cover;" text="Token1" textFill="#f7f7f700" /> -->
-      <Button fx:id="token_1" layoutX="2.0" layoutY="411.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="22.0" style="-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/green_tok.png'); -fx-background-color: transparent; -fx-background-size: cover;" text="Token1" textFill="#f7f7f700" />
-      <Button fx:id="token_2" layoutX="23.0" layoutY="411.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="22.0" style="-fx-background-color: transparent; -fx-background-size: cover; -fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/blue_tok.png');" text="Token2" textFill="TRANSPARENT" />
+      <Button fx:id="token_1" layoutX="2.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#bkgdTouch" prefHeight="38.0" prefWidth="22.0" style="-fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/green_tok.png'); -fx-background-color: transparent; -fx-background-size: cover;" text="Token1" textFill="#f7f7f700" />
+      <Button fx:id="token_2" layoutX="23.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#bkgdTouch" prefHeight="38.0" prefWidth="22.0" style="-fx-background-color: transparent; -fx-background-size: cover; -fx-background-image: url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/blue_tok.png');" text="Token2" textFill="TRANSPARENT" />
    </children>
 </AnchorPane>
