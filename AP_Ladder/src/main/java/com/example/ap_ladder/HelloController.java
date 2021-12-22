@@ -62,7 +62,7 @@ public class HelloController {
     @FXML    
     public void requestRoll(MouseEvent mouseEvent) throws InterruptedException, FileNotFoundException {
         switchShadow();
-        MovePlayer mp = new MovePlayer(player, turn, board);
+        MovePlayer mp = new MovePlayer(player, turn, board, trns);
         mp.start();
         mp.join();
         this.turn = (this.turn == 1 ? 0:1);
@@ -70,7 +70,7 @@ public class HelloController {
     }
 
     
-    private void switchShadow() {
+    private void switchShadow() throws InterruptedException {
         boolean vis = leftShadow.isVisible();
         leftShadow.setVisible(!vis);
         rightShadow.setVisible(vis);
@@ -81,8 +81,13 @@ public class HelloController {
     public void bkgdTouch(MouseEvent event) {
         double x = event.getSceneX();
         double y = event.getSceneY();
+        Circle c = new Circle(x, y, 7);
+        c.setFill(Color.WHITE);
+        c.setEffect(new Glow(3.0));
+        pane1.getChildren().add(c); 
+
         
-        Platform.runLater(new BackgroundTouch(x, y, pane1));
+        Platform.runLater(new BackgroundTouch(c));
 
     }
     

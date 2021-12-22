@@ -34,7 +34,7 @@ public class Dice {
         String str = st + "; -fx-background-size: cover;";
 
         Platform.runLater(new ShowFinalNo(this.d, str));
-        return this.numb;
+        return r;
     }
 
 }
@@ -59,14 +59,7 @@ class Dice_Animation implements Runnable {
             trans(Button b1) {
                 this.b = b1;
             }
-            /*
-             * public void setparam(Player p1, int p) {
-             * this.p1 = p1;
-             * this.poss = p;
-             * this.last = 0;
-             * this.count = this.p1.getPosition();
-             * }
-             */
+
 
             @Override
             public void handle(long now) {
@@ -79,7 +72,8 @@ class Dice_Animation implements Runnable {
                     this.b.setStyle(str + "; -fx-background-size: cover;");
                     last = now;
                     ++count;
-                    if (count >= 5) {
+                    if (count >= 3) {
+                        scaleDownDice();
                         this.stop();
                     }
                 }
@@ -87,13 +81,7 @@ class Dice_Animation implements Runnable {
         }
         trans diceAnim = new trans(this.button);
         diceAnim.start();
-        scaleDownDice();
-
-        // String str = "-fx-background-image:
-        // url('file:C:/Users/alvin/Code/Java/ap-project/AP_Ladder/src/main/resources/com/example/ap_ladder/"
-        // + String.valueOf(r) + ".png')";
-        // this.button.setStyle (str + "; -fx-background-size: cover;");
-
+ 
     }
 
     private void scaleDownDice() {
@@ -119,8 +107,8 @@ class Dice_Animation implements Runnable {
         ScaleTransition scale = new ScaleTransition();
         scale.setFromX(1);
         scale.setFromY(1);
-        scale.setToX(1.5);
-        scale.setToY(1.5);
+        scale.setToX(1.2);
+        scale.setToY(1.2);
         // setting the duration for the Translate transition
         scale.setDuration(Duration.millis(200));
         // setting cycle count for the Translate transition

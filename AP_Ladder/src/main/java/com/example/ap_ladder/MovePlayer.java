@@ -15,6 +15,7 @@ public class MovePlayer extends Thread {
     @Override
     public void run() {
         int numb = Board.dice.roll_dice();
+        System.out.println(numb);
         if(!(this.player[this.t].isOn_the_board())) {
             if(numb != 1) {
                 //Label_updation

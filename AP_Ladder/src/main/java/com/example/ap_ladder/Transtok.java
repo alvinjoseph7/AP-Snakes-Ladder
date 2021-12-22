@@ -9,6 +9,7 @@ public class Transtok extends AnimationTimer {
     private int count;
     private Player p1;
     private int poss;
+    
     public void setparam(Player p1, int p) {
         this.p1 = p1;
         this.poss = p;
