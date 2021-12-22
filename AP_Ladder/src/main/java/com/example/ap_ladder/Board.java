@@ -99,24 +99,3 @@ public class Board {
         this.elements[19] = new Snake(90, 50);
     }
 }
-
-/*  public static int getDiceNo() {
-      return diceNo;
-  }
-
-
-  public static void setDiceNo(int diceNo) {
-      Board.diceNo = diceNo;
-  }
-
-  public int rollDice() throws FileNotFoundException {
-      for (int i = 0; i < 6; i++) {
-          // use this to show rolling animation
-          // Image img = new Image(new FileInputStream("path"));
-      }
-      
-      Random rand = new Random();
-      int diceResult = rand.nextInt(6) + 1;
-      return diceResult;
-  }
-*/
