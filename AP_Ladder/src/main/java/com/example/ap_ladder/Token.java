@@ -25,6 +25,15 @@ public class Token {
         Platform.runLater(new Token_translate(this));
     }
 
+    public void scaledown() {
+        Platform.runLater(new Scale_Button(this, 18, 33));
+    }
+
+    public void scalenormal() {
+        Platform.runLater(new Scale_Button(this, 22, 38));
+    }
+
+
     public Button getButton() {
         return button;
     }

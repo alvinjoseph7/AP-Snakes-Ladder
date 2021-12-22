@@ -7,27 +7,24 @@ public class Player {
     private Token token;
     private int position;
     private boolean on_the_board;
+    private boolean same_square;
 
     public Player(Button tok) {
         this.token = new Token(tok);
         this.position = 0;
         this.on_the_board = false;
+        this.same_square = false;
     }
-/*
-    public void move() {
-        //move token here 
-        if (this.position % 10 == 0)
-            this.token.transY();
-        else
-            this.token.transX();
-
-        this.position += 1;
-    }
-
-    */
 
     public Token getToken() {
         return token;
+    }
+
+    public boolean isSame_square() {
+        return same_square;
+    }
+    public void setSame_square(boolean same_square) {
+        this.same_square = same_square;
     }
 
     public int getPosition() {

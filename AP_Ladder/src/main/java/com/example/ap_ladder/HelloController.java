@@ -28,7 +28,7 @@ public class HelloController {
     Board board;
     private Player[] player = new Player[2];
     private int turn;
-    
+    private Transtok trns;
     @FXML
     private Button dice;
 
@@ -93,6 +93,7 @@ public class HelloController {
         turn = 0;
         player[0] = new Player(token_1);
         player[1] = new Player(token_2);
+        trns = new Transtok();
         // d1 = new Dice(dice);
         // turn = true;
 
