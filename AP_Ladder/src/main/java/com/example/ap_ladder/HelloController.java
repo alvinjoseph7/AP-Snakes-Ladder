@@ -46,12 +46,15 @@ public class HelloController {
 
     @FXML
     private Button token_1;
-    
 
     @FXML
     private Button token_2;
+
     @FXML
     private Label welcomeText;
+
+    @FXML
+    private  ImageView arrow;
 
     // private boolean myTurn;
     // public Circle c;
